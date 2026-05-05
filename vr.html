@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NeuroSync VR Classroom</title>
+
+  <script src="https://cdn.jsdelivr.net/npm/pannellum@2.5.6/build/pannellum.js"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pannellum@2.5.6/build/pannellum.css"/>
+
+  <style>
+    html, body {
+      margin: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      font-family: Orbitron, sans-serif;
+      background: black;
+    }
+
+    #panorama {
+      width: 100%;
+      height: 100%;
+    }
+
+    .vr-title {
+      position: absolute;
+      top: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      color: white;
+      font-size: 32px;
+      background: rgba(0,0,0,0.4);
+      padding: 12px 24px;
+      border-radius: 14px;
+      backdrop-filter: blur(10px);
+      z-index: 999;
+    }
+
+    .back-btn {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      z-index: 999;
+      padding: 12px 20px;
+      border: none;
+      border-radius: 12px;
+      background: rgba(255,255,255,0.15);
+      color: white;
+      cursor: pointer;
+      backdrop-filter: blur(10px);
+    }
+
+    .back-btn:hover {
+      background: rgba(255,255,255,0.3);
+    }
+  </style>
+</head>
+<body>
+
+<button class="back-btn" onclick="window.location.href='index.html'">⬅ Back</button>
+
+<div class="vr-title">NeuroSync VR Classroom</div>
+
+<div id="panorama"></div>
+<div id="fallbackVR" style="display:none; width:100%; height:100vh; background:url('vr-panorama.jpg') center/cover no-repeat; justify-content:center; align-items:center; text-align:center; color:white; padding:20px;">
+  <div style="background:rgba(0,0,0,0.55); padding:25px; border-radius:18px; max-width:700px;">
+    <h1>NeuroSync VR Preview</h1>
+    <p>Your device does not support full immersive VR mode, but you can still explore the futuristic classroom vision.</p>
+  </div>
+</div>
+<script>
+pannellum.viewer('panorama', {
+    type: 'equirectangular',
+    panorama: './vr-panorama.jpg',
+    autoLoad: true,
+    compass: false,
+    showZoomCtrl: true,
+    autoRotate: -2,
+    hfov: 110
+});
+</script>
+
+</body>
+</html>
