@@ -2,6 +2,19 @@
    NEUROSYNC CLEAN CSS
 ========================= */
 
+nav h1 a {
+  font-size: 38px;
+  color: white;
+  letter-spacing: 2px;
+  text-shadow: 0 0 18px rgba(0,255,255,0.35);
+  font-weight: 700;
+  text-decoration: none;
+}
+
+ html {
+  scroll-behavior: smooth;
+} 
+
 * {
   margin: 0;
   padding: 0;
@@ -323,25 +336,26 @@ section::after {
 /* FUTURE PROCESS SECTION */
 .process-row {
   display: flex;
+  flex-direction: row;
   justify-content: center;
-  align-items: flex-start;
+  align-items: stretch;
   gap: 35px;
   flex-wrap: wrap;
-
   margin-top: 60px;
 }
 
 .process-step {
   width: 280px;
+  min-height: unset;
   padding: 35px 25px;
-
   background: rgba(255,255,255,0.07);
   border: 1px solid rgba(0,255,255,0.18);
   border-radius: 24px;
-
   backdrop-filter: blur(14px);
-
   transition: 0.35s ease;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .process-step:hover {
@@ -506,8 +520,7 @@ nav ul li a {
 }
 
 /* CARD FIX */
-.card,
-.process-step {
+.card {
   width: 92% !important;
   max-width: 340px !important;
   margin: 0 auto !important;
@@ -655,6 +668,6 @@ section h2 {
   box-sizing: border-box !important;
 }
 
-.creator-card {
+ .creator-card {
   margin: auto !important;
-}
+} 

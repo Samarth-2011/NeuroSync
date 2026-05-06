@@ -1,3 +1,17 @@
+// SMOOTH SCROLL FOR NAVBAR LINKS
+document.addEventListener("DOMContentLoaded", function() {
+  const navLinks = document.querySelectorAll('nav ul li a[href^="#"]');
+  navLinks.forEach(link => {
+    link.addEventListener('click', function(e) {
+      const targetId = this.getAttribute('href').slice(1);
+      const targetSection = document.getElementById(targetId);
+      if (targetSection) {
+        e.preventDefault();
+        targetSection.scrollIntoView({ behavior: 'smooth' });
+      }
+    });
+  });
+});
 // LOADER REMOVE
 window.addEventListener("load", function() {
   let loader = document.getElementById("loader");
@@ -6,21 +20,7 @@ window.addEventListener("load", function() {
   }
 });
 
-// TYPING EFFECT
-let text = "Smart School 2040";
-let i = 0;
 
-function type() {
-  let typingElement = document.getElementById("typing");
-
-  if (typingElement && i < text.length) {
-    typingElement.innerHTML += text.charAt(i);
-    i++;
-    setTimeout(type, 80);
-  }
-}
-
-type();
 if (typeof particlesJS !== "undefined") {
   particlesJS("particles-js", {
     particles: {
